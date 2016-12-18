@@ -11,6 +11,7 @@ func BestStocks(a []int) (i, j int) {
 	i1, j1 := BestStocks(a[0:b])
 	i2, j2 := BestStocks(a[b:])
 
+	// TODO check, maybe we need only 3 of next variants.
 	max := a[j1] - a[i1] // max1 - min1
 	i, j = i1, j1
 
