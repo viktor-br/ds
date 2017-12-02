@@ -1,8 +1,8 @@
 package sort
 
 import (
-	"testing"
 	"sort"
+	"testing"
 )
 
 func benchmarkMergeSort(a []int, b *testing.B) {

@@ -1,8 +1,8 @@
 package sort
 
 import (
-	"testing"
 	"sort"
+	"testing"
 )
 
 func benchmarkGoSort(a []int, b *testing.B) {
@@ -25,4 +25,3 @@ func BenchmarkGoSort100000(b *testing.B) {
 	a := generateArray(100000)
 	benchmarkGoSort(a, b)
 }
-

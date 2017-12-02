@@ -9,7 +9,7 @@ import (
 
 // Heap implement heap data structure for int type
 type Heap struct {
-	data []int
+	data  []int
 	mutex *sync.Mutex
 }
 
@@ -68,8 +68,6 @@ func (heap *Heap) Insert(number int) error {
 		heap.data[parentIndex], heap.data[lastIndex] = heap.data[lastIndex], heap.data[parentIndex]
 		lastIndex = parentIndex
 	}
-
-	return nil
 }
 
 // Delete heap's element
@@ -80,18 +78,18 @@ func (heap *Heap) Delete(index int) error {
 
 	l := len(heap.data)
 	if l == 0 {
-		return errors.New("Heap is empty")
+		return errors.New("heap is empty")
 	}
 	if l == 1 {
 		heap.data = []int{}
 		return nil
 	}
 	if index >= l {
-		return errors.New("Index is bigger then heap size")
+		return errors.New("index is bigger then heap size")
 	}
 
-	heap.data[index] = heap.data[l - 1]
-	heap.data = heap.data[0:l-1]
+	heap.data[index] = heap.data[l-1]
+	heap.data = heap.data[0 : l-1]
 	for {
 		childIndex, err := heap.minChild(index)
 		if err != nil {
@@ -103,8 +101,6 @@ func (heap *Heap) Delete(index int) error {
 		heap.data[index], heap.data[childIndex] = heap.data[childIndex], heap.data[index]
 		index = childIndex
 	}
-
-	return nil
 }
 
 func (heap *Heap) init() {
@@ -118,7 +114,7 @@ func (heap *Heap) init() {
 
 func (heap *Heap) parentOf(index int) (int, error) {
 	if index >= len(heap.data) {
-		return 0, errors.New("Index is bigger then heap size")
+		return 0, errors.New("index is bigger then heap size")
 	}
 	if index == 0 {
 		return -1, nil
@@ -131,7 +127,7 @@ func (heap *Heap) parentOf(index int) (int, error) {
 func (heap *Heap) minChild(parentIndex int) (int, error) {
 	heapLen := len(heap.data)
 	if parentIndex >= heapLen {
-		return 0, errors.New("Index is bigger then heap size")
+		return 0, errors.New("index is bigger then heap size")
 	}
 
 	child1 := (parentIndex << 1) + 1

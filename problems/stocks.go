@@ -1,5 +1,6 @@
 package problems
 
+// BestStocks calculates one most profitable stocks operation (buying or selling)
 func BestStocks(a []int) (i, j int) {
 	if len(a) == 1 {
 		return 0, 0
@@ -36,13 +37,13 @@ func BestStocks(a []int) (i, j int) {
 	}
 	v6 := a[b+j2] - a[j1] // max2 - max1
 	if v6 > max {
-		max = v6
 		i, j = j1, b+j2
 	}
 
 	return i, j
 }
 
+// BestStocksBruteForce calculates one most profitable stocks operation (buying or selling)
 func BestStocksBruteForce(a []int) (first, second int) {
 	aLen := len(a)
 	// Wrong input

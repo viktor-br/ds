@@ -1,8 +1,8 @@
 package sort
 
 import (
-	"testing"
 	"sort"
+	"testing"
 )
 
 func benchmarkQuickSort(a []int, b *testing.B) {

@@ -6,10 +6,11 @@ import (
 	"time"
 )
 
-var rnd *rand.Rand = rand.New(rand.NewSource(time.Now().UnixNano()))
+var rnd = rand.New(rand.NewSource(time.Now().UnixNano()))
 
 func generateArray(n int) []int {
-	k, j := 0, 0
+	var k int
+	var j int
 	a := make([]int, n)
 
 	for i := 1; i < n; i++ {
@@ -65,7 +66,6 @@ func BenchmarkBestStocksBruteForce100000(b *testing.B) {
 		BestStocksBruteForce(a)
 	}
 }
-
 
 func TestBestStocks(t *testing.T) {
 	a := []int{3, 4, 6, 7, 9, 5, 8, 2, 1, 0}

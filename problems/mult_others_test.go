@@ -2,13 +2,12 @@ package problems
 
 import (
 	"testing"
-	"fmt"
 )
 
 //var rnd *rand.Rand = rand.New(rand.NewSource(time.Now().UnixNano()))
 
 func TestMultOthers(t *testing.T) {
-	multTotal := 1;
+	multTotal := 1
 	n := 10000
 	a := make([]int, n)
 
@@ -23,6 +22,6 @@ func TestMultOthers(t *testing.T) {
 	multActual := MultOthers(a, indx)
 
 	if multExpected != multActual {
-		fmt.Errorf("Expected %d, actual %d", multExpected, multActual)
+		t.Errorf("expected %d, actual %d", multExpected, multActual)
 	}
 }
