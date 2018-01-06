@@ -8,7 +8,10 @@ func MultOthers(a []int, indx int) (mult int) {
 	tree, _, _ = createMultTree(tree, a)
 	l := len(tree) - 1
 	for i := 0; i < l; i++ {
-		mult = mult * tree[i][indx^1]
+		indx = indx ^ 1
+		if indx < len(tree[i]) {
+			mult = mult * tree[i][indx]
+		}
 		indx = indx >> 1
 	}
 

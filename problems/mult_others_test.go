@@ -12,7 +12,7 @@ func TestMultOthers(t *testing.T) {
 	a := make([]int, n)
 
 	for i := 0; i < n; i++ {
-		a[i] = rnd.Intn(10)
+		a[i] = rnd.Intn(9) + 1
 		multTotal = multTotal * a[i]
 	}
 
