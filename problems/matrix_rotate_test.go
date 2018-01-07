@@ -2,6 +2,18 @@ package problems
 
 import "testing"
 
+func TestMatrixRotateSimple(t *testing.T) {
+	matrix := make([][]int, 2)
+	matrix[0] = []int{1, 2}
+	matrix[1] = []int{3, 4}
+
+	expected := make([][]int, 2)
+	expected[0] = []int{3, 1}
+	expected[1] = []int{4, 2}
+
+	runMatrixRotateTest(t, matrix, expected)
+}
+
 func TestMatrixRotateOdd(t *testing.T) {
 	matrix := make([][]int, 3)
 	matrix[0] = []int{1, 2, 3}
