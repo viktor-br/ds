@@ -33,16 +33,7 @@ func TestMatrixRotateEven(t *testing.T) {
 }
 
 func runMatrixRotateTest(t *testing.T, matrix [][]int, expected [][]int) {
-	actual, err := RotateMatrix(matrix)
-	if err != nil {
-		t.Errorf("Matrix is not square")
-	}
-
-	if !equalMatrices(actual, expected) {
-		t.Errorf("Expected is not actual for matrix rotation, n=3")
-	}
-
-	actual, err = RotateMatrixInPlace(matrix)
+	actual, err := RotateMatrixInPlace(matrix)
 	if err != nil {
 		t.Errorf("Matrix is not square")
 	}
