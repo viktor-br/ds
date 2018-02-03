@@ -50,3 +50,33 @@ func TestLinkedListRemoveMiddleElementTwo(t *testing.T) {
 		t.Errorf("Expect %s, actual %s", expectedLinkedList.Sprint(), linkedList.Sprint())
 	}
 }
+
+func TestLinkedListIsPalindrome(t *testing.T) {
+	linkedListAsArray := []int{5, 6, 7, 8, 7, 6, 5}
+	linkedList := CreateLinkedListFromArray(linkedListAsArray)
+
+	if !linkedList.IsPalindrome() {
+		t.Errorf("Expect %v is palindrome", linkedListAsArray)
+	}
+
+	linkedListAsArray = []int{5, 6, 7, 7, 6, 5}
+	linkedList = CreateLinkedListFromArray(linkedListAsArray)
+
+	if !linkedList.IsPalindrome() {
+		t.Errorf("Expect %v is palindrome", linkedListAsArray)
+	}
+
+	linkedListAsArray = []int{5, 7, 7, 6, 5}
+	linkedList = CreateLinkedListFromArray(linkedListAsArray)
+
+	if linkedList.IsPalindrome() {
+		t.Errorf("Expect %v is palindrome", linkedListAsArray)
+	}
+
+	linkedListAsArray = []int{5}
+	linkedList = CreateLinkedListFromArray(linkedListAsArray)
+
+	if !linkedList.IsPalindrome() {
+		t.Errorf("Expect %v is palindrome", linkedListAsArray)
+	}
+}

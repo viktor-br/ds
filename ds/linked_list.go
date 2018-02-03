@@ -172,3 +172,27 @@ func (linkedList *LinkedList) RemoveMiddleElement() {
 	middleElementParent.next = middleElementParent.next.next
 	linkedList.count--
 }
+
+// IsPalindrome checks if linked list is the same if are reading in both directions
+func (linkedList *LinkedList) IsPalindrome() bool {
+	_, isPalindrome := linkedList.palindrom(linkedList.head)
+
+	return isPalindrome
+}
+
+func (linkedList *LinkedList) palindrom(linkedListElement *LinkedListElement) (*LinkedListElement, bool) {
+	if linkedListElement == nil {
+		return linkedList.head, true
+	}
+
+	linkedListElementFromHead, isPalindrome := linkedList.palindrom(linkedListElement.next)
+	if !isPalindrome {
+		return linkedListElementFromHead.next, isPalindrome
+	}
+
+	if linkedListElementFromHead.data != linkedListElement.data {
+		return linkedListElementFromHead.next, false
+	}
+
+	return linkedListElementFromHead.next, true
+}
