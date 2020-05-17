@@ -1,6 +1,10 @@
 package problems
 
-import "testing"
+import (
+	"testing"
+
+	"github.com/viktor-br/ds/util"
+)
 
 func TestMatrixRotateSimple(t *testing.T) {
 	matrix := make([][]int, 2)
@@ -49,29 +53,7 @@ func runMatrixRotateTest(t *testing.T, matrix [][]int, expected [][]int) {
 	if err != nil {
 		t.Errorf("Matrix is not square")
 	}
-	if !equalMatrices(actual, expected) {
+	if !util.EqualMatrices(actual, expected) {
 		t.Errorf("Expected is not actual for the in place matrix rotation, n=3")
 	}
-}
-
-func equalMatrices(m1 [][]int, m2 [][]int) bool {
-	if len(m1) != len(m2) {
-		return false
-	}
-	n := len(m1)
-	for i := 0; i < len(m1); i++ {
-		if len(m1[i]) != len(m2[i]) {
-			return false
-		}
-		if len(m1[i]) != n {
-			return false
-		}
-		for j := 0; j < len(m1[i]); j++ {
-			if m1[i][j] != m2[i][j] {
-				return false
-			}
-		}
-	}
-
-	return true
 }
