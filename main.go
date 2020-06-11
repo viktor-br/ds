@@ -4,18 +4,28 @@ import (
 	"fmt"
 
 	"github.com/viktor-br/ds/problems"
-
-	"math/big"
 )
 
 func main() {
-	problems.IsUniqueUtf8("фбфкд")
+	stack := problems.NewStackMin()
 
-	a := big.NewInt(0)
+	stack.Push(3)
+	stack.Push(4)
+	stack.Push(2)
+	stack.Push(1)
 
-	a.SetBit(a, 70, 1)
+	fmt.Println(problems.LinkedListToString(stack.TopElement()))
+	fmt.Println(problems.LinkedListToString(stack.MinElement()))
 
-	fmt.Println(a.String())
+	fmt.Println(stack.Min())
 
-	// fmt.Printf("%d %b %b\n", a|b, a, b)
+	stack.Pop()
+	fmt.Println(stack.Min())
+
+	stack.Pop()
+	fmt.Println(stack.Min())
+
+	value, _ := stack.Pop()
+	fmt.Println(stack.Min())
+	fmt.Println(value)
 }

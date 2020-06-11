@@ -1,7 +1,9 @@
 package ds
 
-import "fmt"
-import "bytes"
+import (
+	"bytes"
+	"fmt"
+)
 
 // LinkedList represents LL itself
 type LinkedList struct {
